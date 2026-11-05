@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Peta Komponen Komputer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#EAF0F6;--sf:#fff;--ink:#10233F;--mut:#506381;--ac:#2F5BFF;--onac:#fff;--hl:#FFC93C;--ln:#CBD6E4;--ok:#0E9F6E;--no:#D6455D;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1424;--sf:#12213A;--ink:#E8EEF8;--mut:#9DB0CE;--ac:#7FA0FF;--onac:#0A1424;--ln:#27395A;--ok:#33C48D;--no:#F0708A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1424;--sf:#12213A;--ink:#E8EEF8;--mut:#9DB0CE;--ac:#7FA0FF;--onac:#0A1424;--ln:#27395A;--ok:#33C48D;--no:#F0708A;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:640px;margin:0 auto;padding:22px 16px 48px}
+h1{font-size:clamp(28px,8vw,40px);line-height:1.05;letter-spacing:-.02em;margin:6px 0 8px;font-weight:700}
+.sub{color:var(--mut);margin:0 0 20px;max-width:46ch}
+.tabs{display:flex;gap:4px;background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:4px;margin-bottom:18px}
+.tabs button{flex:1;border:0;background:none;color:var(--mut);font:inherit;font-weight:600;padding:8px 6px;border-radius:9px;cursor:pointer;min-height:44px}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.lg{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 14px;font-size:13px;color:var(--mut)}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;background:var(--gc)}
+.it{background:var(--sf);border:1px solid var(--ln);border-left:6px solid var(--gc);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.it>button{display:flex;width:100%;align-items:center;gap:12px;background:none;border:0;color:inherit;font:inherit;text-align:left;padding:12px 14px;cursor:pointer;min-height:60px}
+.ic{font-size:26px;width:36px;text-align:center}
+.nm{font-weight:700;display:block}.rl{color:var(--mut);font-size:14px;display:block}
+.tx{flex:1}.cv{transition:transform .2s;color:var(--mut)}.it.o .cv{transform:rotate(180deg)}
+.bd{display:none;padding:0 16px 16px}.it.o .bd{display:block}
+.bd p{margin:0 0 10px}.bd b{color:var(--mut);font-weight:600}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.chip{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:10px 4px;text-align:center;opacity:.45;transition:opacity .25s,transform .25s,background .25s}
+.chip.on{opacity:1;background:var(--hl);color:#10233F;border-color:var(--hl);transform:translateY(-3px)}
+.chip span{display:block;font-size:24px;line-height:1.3}.chip small{font-size:12px;font-weight:600}
+.bar{height:6px;background:var(--ln);border-radius:3px;margin:18px 0}.bar i{display:block;height:100%;background:var(--ac);border-radius:3px;transition:width .3s}
+.st{background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:16px}
+.st .k{color:var(--mut);font-size:14px;margin-bottom:2px}.st h2{margin:0 0 6px;font-size:21px;line-height:1.2}.st p{margin:0}
+.ctl{display:flex;gap:8px;margin-top:14px}
+.btn{flex:1;min-height:46px;border-radius:10px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);font:inherit;font-weight:600;cursor:pointer;padding:0 10px}
+.btn.p{background:var(--ac);border-color:var(--ac);color:var(--onac)}
+.btn:disabled{opacity:.4;cursor:default}
+.q{background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:16px}
+.q h2{font-size:19px;line-height:1.3;margin:0 0 12px}.q .k{color:var(--mut);font-size:14px;margin-bottom:4px}
+.op{display:block;width:100%;text-align:left;margin-bottom:8px;min-height:46px;padding:10px 12px;border-radius:10px;border:2px solid var(--ln);background:none;color:var(--ink);font:inherit;cursor:pointer}
+.op.ok{border-color:var(--ok)}.op.no{border-color:var(--no)}
+.ex{margin:12px 0 0;color:var(--mut)}
+.sc{font-size:44px;font-weight:700;margin:4px 0}
+footer{margin-top:28px;color:var(--mut);font-size:13px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<h1>Peta Komponen Komputer</h1>
+<p class="sub">Pelajari fungsi tiap komponen, lihat bagaimana mereka bekerja bersama, lalu uji pemahamanmu.</p>
+<div class="tabs" role="tablist">
+<button role="tab" id="t0" onclick="go(0)">Jelajahi</button>
+<button role="tab" id="t1" onclick="go(1)">Alur kerja</button>
+<button role="tab" id="t2" onclick="go(2)">Kuis</button>
+</div>
+<div id="v"></div>
+<footer>Materi: Arsitektur dan Organisasi Komputer</footer>
+</main>
+<script>
+var G={p:["Pemrosesan","#2F5BFF"],m:["Memori","#00A88F"],s:["Penyimpanan","#8A5CF6"],d:["Daya","#E8920C"],c:["Pendingin","#1CA7E0"],i:["Input dan output","#E0517A"]};
+var C=[
+{id:"cpu",s:"CPU",i:"🧠",g:"p",n:"CPU (Processor)",r:"Otak komputer",f:"Menjalankan instruksi program. Di dalamnya ada Control Unit yang mengatur alur, ALU yang menghitung dan membandingkan, register, dan cache. CPU bekerja dengan siklus fetch, decode, execute.",a:"Koki yang membaca resep lalu memasak langkah demi langkah.",x:"Intel Core i5, AMD Ryzen 5",t:"Kecepatannya diukur dalam GHz. Punya beberapa core agar bisa mengerjakan banyak tugas sekaligus."},
+{id:"ram",s:"RAM",i:"🧩",g:"m",n:"RAM (Random Access Memory)",r:"Memori kerja sementara",f:"Menyimpan program dan data yang sedang dipakai CPU supaya bisa diakses sangat cepat. Bersifat volatile: isinya hilang saat listrik mati.",a:"Meja kerja. Makin luas mejanya, makin banyak berkas yang bisa dibuka bersamaan.",x:"DDR4 atau DDR5, 8 sampai 32 GB",t:"RAM jauh lebih cepat daripada SSD, tetapi kapasitasnya lebih kecil dan datanya tidak permanen."},
+{id:"mobo",s:"Motherboard",i:"🔲",g:"p",n:"Motherboard",r:"Papan penghubung utama",f:"Menghubungkan semua komponen lewat jalur bus data, alamat, dan kontrol. Menyediakan socket CPU, slot RAM, slot PCIe untuk GPU, serta port SATA dan M.2 untuk storage.",a:"Jaringan jalan raya kota yang menghubungkan semua gedung.",x:"Format ATX, Micro-ATX, Mini-ITX",t:"Chipset di motherboard menentukan CPU dan RAM apa yang kompatibel."},
+{id:"disk",s:"Storage",i:"💾",g:"s",n:"Storage (SSD dan HDD)",r:"Penyimpanan permanen",f:"Menyimpan sistem operasi, aplikasi, dan file. Data tetap ada saat listrik mati (non-volatile). SSD memakai chip flash tanpa bagian bergerak, HDD memakai piringan magnetik yang berputar.",a:"Lemari arsip. Isinya awet, tetapi mengambil berkas butuh waktu lebih lama daripada dari meja kerja.",x:"SSD NVMe 512 GB, HDD 1 TB",t:"SSD bisa puluhan kali lebih cepat daripada HDD, dan lebih tahan guncangan."},
+{id:"gpu",s:"GPU",i:"🎮",g:"p",n:"GPU (Graphics Card)",r:"Pengolah grafis",f:"Menghitung gambar, video, dan efek visual dengan ribuan core kecil yang bekerja paralel. Punya memori sendiri bernama VRAM. Kini juga dipakai untuk komputasi AI.",a:"Ribuan pelukis yang mewarnai tiap piksel secara bersamaan.",x:"NVIDIA GeForce RTX, AMD Radeon",t:"Prosesor bawaan CPU (integrated graphics) cukup untuk kerja ringan, tetapi game berat butuh GPU terpisah."},
+{id:"psu",s:"PSU",i:"⚡",g:"d",n:"PSU (Power Supply Unit)",r:"Penyedia daya",f:"Mengubah listrik AC dari stopkontak menjadi DC bertegangan rendah (+3,3 V, +5 V, +12 V) yang aman untuk komponen, lalu membagikannya lewat kabel.",a:"Penerjemah listrik: mengubah tenaga kasar dari PLN menjadi bentuk yang bisa dipakai komponen.",x:"450 W sampai 850 W, sertifikasi 80 Plus",t:"PSU yang terlalu lemah bisa membuat komputer restart sendiri saat beban berat."},
+{id:"fan",s:"Pendingin",i:"❄️",g:"c",n:"Sistem pendingin",r:"Pembuang panas",f:"Membuang panas dari CPU dan GPU lewat heatsink, kipas, atau water cooling agar suhu tetap aman dan performa tidak turun (thermal throttling).",a:"Keringat dan napas saat berolahraga: cara tubuh menjaga suhu tetap stabil.",x:"Heatsink dan kipas CPU, kipas casing, pasta termal",t:"Pasta termal mengisi celah mikro antara CPU dan heatsink agar panas berpindah lebih baik."},
+{id:"in",s:"Input",i:"⌨️",g:"i",n:"Perangkat input",r:"Pintu masuk data",f:"Memasukkan data dan perintah dari pengguna ke komputer.",a:"Telinga dan tangan: cara kita memberi tahu komputer apa yang diinginkan.",x:"Keyboard, mouse, mikrofon, webcam, scanner",t:"Sinyal dari perangkat input diterima lewat port, misalnya USB, lalu diteruskan ke CPU."},
+{id:"out",s:"Output",i:"🖥️",g:"i",n:"Perangkat output",r:"Pintu keluar hasil",f:"Menampilkan atau menyampaikan hasil pemrosesan kepada pengguna.",a:"Mulut dan wajah komputer: cara ia menjawab kita.",x:"Monitor, speaker, printer, headphone",t:"Monitor menerima gambar dari GPU lewat kabel HDMI atau DisplayPort."}
+];
+var S=[
+{t:"Tekan tombol power",on:["psu","mobo"],d:"PSU mengubah listrik AC dari stopkontak menjadi DC, lalu mengalirkannya lewat motherboard ke semua komponen."},
+{t:"Klik ikon aplikasi",on:["in","mobo","cpu"],d:"Mouse mengirim sinyal klik. Motherboard meneruskannya lewat bus ke CPU sebagai permintaan untuk membuka aplikasi."},
+{t:"Program dimuat",on:["disk","ram"],d:"Program disalin dari storage yang permanen tetapi lebih lambat ke RAM yang sementara tetapi sangat cepat."},
+{t:"Instruksi dijalankan",on:["ram","cpu"],d:"CPU mengulang siklus fetch (ambil instruksi dari RAM), decode (diterjemahkan Control Unit), dan execute (dihitung ALU), miliaran kali per detik."},
+{t:"Gambar dirender",on:["cpu","gpu"],d:"CPU mengirim data grafis ke GPU. Ribuan core GPU menghitung warna tiap piksel secara paralel dan menyimpannya di VRAM."},
+{t:"Hasil ditampilkan",on:["gpu","out"],d:"Frame yang sudah jadi dikirim lewat kabel HDMI atau DisplayPort ke monitor. Suara dikirim ke speaker."},
+{t:"Panas dibuang",on:["fan","cpu","gpu"],d:"Selama bekerja, CPU dan GPU menghasilkan panas. Heatsink dan kipas membuangnya agar suhu stabil dan kinerja tidak turun."}
+];
+var Q=[
+{q:"Komponen mana yang disebut otak komputer?",o:["CPU","RAM","PSU","Storage"],a:0,e:"CPU menjalankan instruksi program lewat siklus fetch, decode, execute."},
+{q:"Apa yang terjadi pada data di RAM saat listrik mati?",o:["Tersimpan permanen","Pindah otomatis ke CPU","Hilang","Disalin ke GPU"],a:2,e:"RAM bersifat volatile, jadi isinya hilang saat daya putus. Data permanen disimpan di SSD atau HDD."},
+{q:"Mengapa SSD lebih cepat daripada HDD?",o:["Ukurannya lebih besar","Tidak punya bagian bergerak","Memakai kipas","Tegangannya lebih tinggi"],a:1,e:"SSD memakai chip flash, sedangkan HDD harus memutar piringan dan menggerakkan head baca."},
+{q:"Apa tugas utama PSU?",o:["Memproses grafis","Menyimpan file","Mengubah listrik AC menjadi DC","Mendinginkan CPU"],a:2,e:"PSU menurunkan dan menyearahkan listrik agar aman dipakai komponen."},
+{q:"Komponen yang menghubungkan semua komponen lain lewat bus adalah...",o:["GPU","Motherboard","RAM","Monitor"],a:1,e:"Motherboard menyediakan jalur bus dan slot untuk semua komponen."},
+{q:"Siklus kerja dasar CPU disebut...",o:["Boot, load, save","Input, output, store","Read, write, erase","Fetch, decode, execute"],a:3,e:"CPU mengambil instruksi, menerjemahkannya, lalu mengeksekusinya, berulang terus."}
+];
+var tab=0,open=null,step=0,timer=null,qi=0,score=0,ans=null;
+function $(s){return document.querySelector(s)}
+function go(n){tab=n;stop();if(n==1)step=0;if(n==2){qi=0;score=0;ans=null}draw()}
+function stop(){if(timer){clearInterval(timer);timer=null}}
+function draw(){
+for(var i=0;i<3;i++){var b=$("#t"+i);b.setAttribute("aria-selected",i==tab)}
+$("#v").innerHTML=tab==0?vE():tab==1?vF():vQ();
+}
+function vE(){
+var h='<div class="lg">';
+for(var k in G)h+='<span style="--gc:'+G[k][1]+'"><i></i>'+G[k][0]+'</span>';
+h+='</div>';
+C.forEach(function(c){
+h+='<div class="it'+(open==c.id?' o':'')+'" style="--gc:'+G[c.g][1]+'"><button aria-expanded="'+(open==c.id)+'" onclick="tg(\''+c.id+'\')"><span class="ic">'+c.i+'</span><span class="tx"><span class="nm">'+c.n+'</span><span class="rl">'+c.r+'</span></span><span class="cv">▾</span></button><div class="bd"><p><b>Fungsi.</b> '+c.f+'</p><p><b>Analogi.</b> '+c.a+'</p><p><b>Contoh.</b> '+c.x+'</p><p><b>Fakta.</b> '+c.t+'</p></div></div>';
+});
+return h;
+}
+function tg(id){open=open==id?null:id;draw()}
+function vF(){
+var s=S[step],h='<div class="chips">';
+C.forEach(function(c){h+='<div class="chip'+(s.on.indexOf(c.id)>-1?' on':'')+'"><span>'+c.i+'</span><small>'+c.s+'</small></div>'});
+h+='</div><div class="bar"><i style="width:'+((step+1)/S.length*100)+'%"></i></div>';
+h+='<div class="st"><div class="k">Langkah '+(step+1)+' dari '+S.length+'</div><h2>'+s.t+'</h2><p>'+s.d+'</p>';
+h+='<div class="ctl"><button class="btn" onclick="mv(-1)"'+(step==0?' disabled':'')+'>Sebelumnya</button><button class="btn p" onclick="mv(1)"'+(step==S.length-1?' disabled':'')+'>Berikutnya</button></div>';
+h+='<div class="ctl"><button class="btn" onclick="auto()">'+(timer?'Jeda':'Putar otomatis')+'</button></div></div>';
+return h;
+}
+function mv(d){step=Math.max(0,Math.min(S.length-1,step+d));if(step==S.length-1)stop();draw()}
+function auto(){
+if(timer){stop();draw();return}
+if(step==S.length-1)step=0;
+timer=setInterval(function(){if(step<S.length-1){step++}if(step>=S.length-1)stop();draw()},3800);
+draw();
+}
+function vQ(){
+if(qi>=Q.length){
+return '<div class="q"><div class="k">Hasil akhir</div><div class="sc">'+score+' / '+Q.length+'</div><p>'+(score>=5?'Pemahamanmu sudah kuat.':score>=3?'Sudah baik. Ulangi tab Alur kerja untuk memperkuat.':'Coba pelajari lagi tab Jelajahi, lalu ulangi kuis.')+'</p><div class="ctl"><button class="btn p" onclick="go(2)">Ulangi kuis</button></div></div>';
+}
+var q=Q[qi],h='<div class="q"><div class="k">Pertanyaan '+(qi+1)+' dari '+Q.length+'</div><h2>'+q.q+'</h2>';
+q.o.forEach(function(o,i){
+var c=ans===null?'':i==q.a?' ok':i==ans?' no':'';
+h+='<button class="op'+c+'" onclick="pick('+i+')"'+(ans!==null?' disabled':'')+'>'+o+'</button>';
+});
+if(ans!==null){h+='<p class="ex">'+(ans==q.a?'Benar. ':'Belum tepat. ')+q.e+'</p><div class="ctl"><button class="btn p" onclick="nx()">'+(qi==Q.length-1?'Lihat hasil':'Pertanyaan berikutnya')+'</button></div>'}
+return h+'</div>';
+}
+function pick(i){if(ans!==null)return;ans=i;if(i==Q[qi].a)score++;draw()}
+function nx(){qi++;ans=null;draw()}
+draw();
+</script>
+</body>
+</html>
