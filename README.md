@@ -14,7 +14,7 @@ Buka `index.html` di browser. Tidak perlu instalasi.
 
 ## Demo
 
-[tempel link GitHub Pages di sini]
+[https://bonarj.github.io/Komponen_Komputer-/]
 
 ## Pembuat
 
